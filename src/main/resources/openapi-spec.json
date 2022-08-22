@@ -1,0 +1,159 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Corridor Explorer Simulation Input",
+        "version": "1.0.0",
+        "description": "This REST endpoint handles creation, editing, and deleting all the possible inputs to a simulation, such as user, simulation, species variables...",
+        "contact": {
+            "name": "Steve Pousty"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080/v1",
+            "description": "The development server"
+        }
+    ],
+    "paths": {
+        "/test": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "default": "Howdy partner",
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": "just a test string to show it works"
+                    }
+                },
+                "operationId": "getTestResponse",
+                "summary": "Just for a hello world and to see if it works"
+            }
+        },
+        "/users": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/users"
+                                }
+                            }
+                        }
+                    }
+                },
+                "operationId": "getAllUsers",
+                "summary": "Get all the users"
+            }
+        },
+        "/users/{userId}": {
+            "summary": "Path used to manage a single user.",
+            "description": "The REST endpoint/path used to get, update, and delete single instances of an `user`.  This path contains `GET`, `PUT`, and `DELETE` operations used to perform the get, update, and delete tasks, respectively.",
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/user"
+                                }
+                            }
+                        },
+                        "description": "Successful response - returns a single `user`."
+                    }
+                },
+                "operationId": "getuser",
+                "summary": "Get a user",
+                "description": "Gets the details of a single instance of a `user`."
+            },
+            "put": {
+                "requestBody": {
+                    "description": "Updated `user` information.",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful response."
+                    }
+                },
+                "operationId": "updateuser",
+                "summary": "Update a user",
+                "description": "Updates an existing `user`."
+            },
+            "delete": {
+                "responses": {
+                    "204": {
+                        "description": "Successful response."
+                    }
+                },
+                "operationId": "deleteuser",
+                "summary": "Delete a user",
+                "description": "Deletes an existing `user`."
+            },
+            "parameters": [
+                {
+                    "name": "userId",
+                    "description": "A unique identifier for a `user`.",
+                    "schema": {
+                        "type": "string"
+                    },
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "user": {
+                "description": "users of the simulation system",
+                "required": [
+                    "id",
+                    "email"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "the users id in the system "
+                    },
+                    "first-name": {
+                        "description": "The user's first name",
+                        "type": "string"
+                    },
+                    "family-name": {
+                        "description": "the users family/last name",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "The user's email address",
+                        "type": "string"
+                    }
+                }
+            },
+            "users": {
+                "description": "An array of users",
+                "type": "array",
+                "items": {
+                    "$ref": "#/components/schemas/user"
+                }
+            }
+        }
+    }
+}

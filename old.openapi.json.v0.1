@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Corridor Explorer Simulation Input",
+    "description": "This REST endpoint handles creation, editing, and deleting all the possible inputs to a simulation, such as user, simulation, species variables...",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/v1",
+      "description": "The development server"
+    }
+  ],
+  "paths": {
+    "/test": {
+      "get": {
+        "summary": "Just for a hello world and to see if it works",
+        "operationId": "getTestResponse",
+        "responses": {
+          "200": {
+            "description": "just a test string to show it works",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "default": "Howdy partner"
+                }
+              }
+            }
+          }
+        }
+      }
+
+    },
+    "/user/{id}": {
+      "get": {
+        "summary": "Get a user by their id ",
+        "operationId": "getUserbyID",
+        "responses": {
+
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Get all the users",
+        "operationId": "getAllUsers",
+        "responses": {
+
+        }
+      }
+    }
+  }
+}
