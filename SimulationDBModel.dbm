@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.0-alpha1" use-changelog="false" author="Steven Pousty" last-position="0,0" last-zoom="0.65" max-obj-count="8"
+	 default-schema="public" default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="simulation-parameters" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="simulation" layers="0" rect-visible="true" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<table name="user" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="simulation"/>
+	<role name="postgres"/>
+	<position x="80" y="160"/>
+	<column name="id" not-null="true"
+	 identity-type="ALWAYS">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="email">
+		<type name="text" length="0"/>
+	</column>
+	<column name="family-name">
+		<type name="text" length="0"/>
+	</column>
+	<column name="given-name">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="user-id-pk" type="pk-constr" table="simulation.&quot;user&quot;">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="species" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="600" y="340"/>
+</table>
+
+<table name="movement-information" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="860" y="340"/>
+</table>
+
+<table name="statistical-distributions" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="800" y="460"/>
+</table>
+
+<table name="simulation-run" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="540" y="640"/>
+</table>
+
+<table name="landscapes" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="800" y="220"/>
+</table>
+
+<table name="species_landscape" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="580" y="140"/>
+</table>
+
+</dbmodel>
